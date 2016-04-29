@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace MusicControl
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void pnDetailEditing_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
