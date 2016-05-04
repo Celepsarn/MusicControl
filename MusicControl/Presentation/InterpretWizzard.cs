@@ -7,24 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MusicControl.Business;
 
-namespace MusicControl
+namespace MusicControl.Presentation
 {
-    public partial class MainForm : Form
+    public partial class InterpretWizzard : Form
     {
-        public MainForm()
+        public InterpretWizzard()
         {
             InitializeComponent();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pnDetailEditing_Paint(object sender, PaintEventArgs e)
-        {
-
+            
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace MusicControl
+﻿namespace MusicControl.Presentation
 {
     partial class MainForm
     {
@@ -35,23 +35,25 @@
             this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnSearch = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.edSearchBar = new System.Windows.Forms.TextBox();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.pnTree = new System.Windows.Forms.Panel();
-            this.pnDetailEditing = new System.Windows.Forms.Panel();
-            this.spltr2 = new System.Windows.Forms.Splitter();
             this.pnFavorites = new System.Windows.Forms.Panel();
-            this.spltr1 = new System.Windows.Forms.Splitter();
-            this.treeMain = new System.Windows.Forms.TreeView();
             this.lblFavTitle = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.spltr2 = new System.Windows.Forms.Splitter();
+            this.pnDetailEditing = new System.Windows.Forms.Panel();
+            this.spltr1 = new System.Windows.Forms.Splitter();
+            this.pnTree = new System.Windows.Forms.Panel();
+            this.treeMain = new System.Windows.Forms.TreeView();
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.interpretToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menTopBar.SuspendLayout();
             this.pnTop.SuspendLayout();
             this.pnSearch.SuspendLayout();
             this.pnMain.SuspendLayout();
-            this.pnTree.SuspendLayout();
-            this.pnDetailEditing.SuspendLayout();
             this.pnFavorites.SuspendLayout();
+            this.pnDetailEditing.SuspendLayout();
+            this.pnTree.SuspendLayout();
             this.SuspendLayout();
             // 
             // menTopBar
@@ -71,6 +73,8 @@
             // 
             // dateiToolStripMenuItem
             // 
+            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 17);
             this.dateiToolStripMenuItem.Text = "Datei";
@@ -114,6 +118,16 @@
             this.pnSearch.Size = new System.Drawing.Size(142, 21);
             this.pnSearch.TabIndex = 1;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSearch.Location = new System.Drawing.Point(0, 0);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(21, 21);
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.Text = "🔎";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // edSearchBar
             // 
             this.edSearchBar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,32 +148,6 @@
             this.pnMain.Size = new System.Drawing.Size(704, 431);
             this.pnMain.TabIndex = 7;
             // 
-            // pnTree
-            // 
-            this.pnTree.Controls.Add(this.treeMain);
-            this.pnTree.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnTree.Location = new System.Drawing.Point(0, 0);
-            this.pnTree.Name = "pnTree";
-            this.pnTree.Size = new System.Drawing.Size(200, 431);
-            this.pnTree.TabIndex = 0;
-            // 
-            // pnDetailEditing
-            // 
-            this.pnDetailEditing.Controls.Add(this.spltr1);
-            this.pnDetailEditing.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnDetailEditing.Location = new System.Drawing.Point(200, 0);
-            this.pnDetailEditing.Name = "pnDetailEditing";
-            this.pnDetailEditing.Size = new System.Drawing.Size(362, 431);
-            this.pnDetailEditing.TabIndex = 1;
-            // 
-            // spltr2
-            // 
-            this.spltr2.Location = new System.Drawing.Point(562, 0);
-            this.spltr2.Name = "spltr2";
-            this.spltr2.Size = new System.Drawing.Size(3, 431);
-            this.spltr2.TabIndex = 3;
-            this.spltr2.TabStop = false;
-            // 
             // pnFavorites
             // 
             this.pnFavorites.Controls.Add(this.lblFavTitle);
@@ -168,22 +156,6 @@
             this.pnFavorites.Name = "pnFavorites";
             this.pnFavorites.Size = new System.Drawing.Size(139, 431);
             this.pnFavorites.TabIndex = 4;
-            // 
-            // spltr1
-            // 
-            this.spltr1.Location = new System.Drawing.Point(0, 0);
-            this.spltr1.Name = "spltr1";
-            this.spltr1.Size = new System.Drawing.Size(3, 431);
-            this.spltr1.TabIndex = 0;
-            this.spltr1.TabStop = false;
-            // 
-            // treeMain
-            // 
-            this.treeMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeMain.Location = new System.Drawing.Point(0, 0);
-            this.treeMain.Name = "treeMain";
-            this.treeMain.Size = new System.Drawing.Size(200, 431);
-            this.treeMain.TabIndex = 0;
             // 
             // lblFavTitle
             // 
@@ -195,15 +167,62 @@
             this.lblFavTitle.TabIndex = 0;
             this.lblFavTitle.Text = "Favoriten";
             // 
-            // btnSearch
+            // spltr2
             // 
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSearch.Location = new System.Drawing.Point(0, 0);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(21, 21);
-            this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "🔎";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.spltr2.Location = new System.Drawing.Point(562, 0);
+            this.spltr2.Name = "spltr2";
+            this.spltr2.Size = new System.Drawing.Size(3, 431);
+            this.spltr2.TabIndex = 3;
+            this.spltr2.TabStop = false;
+            // 
+            // pnDetailEditing
+            // 
+            this.pnDetailEditing.Controls.Add(this.spltr1);
+            this.pnDetailEditing.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnDetailEditing.Location = new System.Drawing.Point(200, 0);
+            this.pnDetailEditing.Name = "pnDetailEditing";
+            this.pnDetailEditing.Size = new System.Drawing.Size(362, 431);
+            this.pnDetailEditing.TabIndex = 1;
+            // 
+            // spltr1
+            // 
+            this.spltr1.Location = new System.Drawing.Point(0, 0);
+            this.spltr1.Name = "spltr1";
+            this.spltr1.Size = new System.Drawing.Size(3, 431);
+            this.spltr1.TabIndex = 0;
+            this.spltr1.TabStop = false;
+            // 
+            // pnTree
+            // 
+            this.pnTree.Controls.Add(this.treeMain);
+            this.pnTree.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnTree.Location = new System.Drawing.Point(0, 0);
+            this.pnTree.Name = "pnTree";
+            this.pnTree.Size = new System.Drawing.Size(200, 431);
+            this.pnTree.TabIndex = 0;
+            // 
+            // treeMain
+            // 
+            this.treeMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeMain.Location = new System.Drawing.Point(0, 0);
+            this.treeMain.Name = "treeMain";
+            this.treeMain.Size = new System.Drawing.Size(200, 431);
+            this.treeMain.TabIndex = 0;
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.interpretToolStripMenuItem});
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
+            // 
+            // interpretToolStripMenuItem
+            // 
+            this.interpretToolStripMenuItem.Name = "interpretToolStripMenuItem";
+            this.interpretToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.interpretToolStripMenuItem.Text = "Interpret";
+            this.interpretToolStripMenuItem.Click += new System.EventHandler(this.interpretToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -222,10 +241,10 @@
             this.pnSearch.ResumeLayout(false);
             this.pnSearch.PerformLayout();
             this.pnMain.ResumeLayout(false);
-            this.pnTree.ResumeLayout(false);
-            this.pnDetailEditing.ResumeLayout(false);
             this.pnFavorites.ResumeLayout(false);
             this.pnFavorites.PerformLayout();
+            this.pnDetailEditing.ResumeLayout(false);
+            this.pnTree.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -249,6 +268,8 @@
         private System.Windows.Forms.Label lblFavTitle;
         private System.Windows.Forms.TreeView treeMain;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem interpretToolStripMenuItem;
     }
 }
 
