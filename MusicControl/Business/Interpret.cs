@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace MusicControl.Business
 {
-    public void setNew()
+    public void newInterpret()
     {
 
     }

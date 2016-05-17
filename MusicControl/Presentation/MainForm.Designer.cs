@@ -84,13 +84,13 @@
             this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.interpretToolStripMenuItem});
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.neuToolStripMenuItem.Text = "Neu";
             // 
             // interpretToolStripMenuItem
             // 
             this.interpretToolStripMenuItem.Name = "interpretToolStripMenuItem";
-            this.interpretToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.interpretToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.interpretToolStripMenuItem.Text = "Interpret";
             this.interpretToolStripMenuItem.Click += new System.EventHandler(this.interpretToolStripMenuItem_Click);
             // 
