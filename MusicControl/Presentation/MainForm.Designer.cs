@@ -30,6 +30,8 @@
         {
             this.menTopBar = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.interpretToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ansichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,8 +47,6 @@
             this.spltr1 = new System.Windows.Forms.Splitter();
             this.pnTree = new System.Windows.Forms.Panel();
             this.treeMain = new System.Windows.Forms.TreeView();
-            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.interpretToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menTopBar.SuspendLayout();
             this.pnTop.SuspendLayout();
             this.pnSearch.SuspendLayout();
@@ -78,6 +78,21 @@
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 17);
             this.dateiToolStripMenuItem.Text = "Datei";
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.interpretToolStripMenuItem});
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
+            // 
+            // interpretToolStripMenuItem
+            // 
+            this.interpretToolStripMenuItem.Name = "interpretToolStripMenuItem";
+            this.interpretToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.interpretToolStripMenuItem.Text = "Interpret";
+            this.interpretToolStripMenuItem.Click += new System.EventHandler(this.interpretToolStripMenuItem_Click);
             // 
             // bearbeitenToolStripMenuItem
             // 
@@ -208,21 +223,6 @@
             this.treeMain.Name = "treeMain";
             this.treeMain.Size = new System.Drawing.Size(200, 431);
             this.treeMain.TabIndex = 0;
-            // 
-            // neuToolStripMenuItem
-            // 
-            this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.interpretToolStripMenuItem});
-            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.neuToolStripMenuItem.Text = "Neu";
-            // 
-            // interpretToolStripMenuItem
-            // 
-            this.interpretToolStripMenuItem.Name = "interpretToolStripMenuItem";
-            this.interpretToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.interpretToolStripMenuItem.Text = "Interpret";
-            this.interpretToolStripMenuItem.Click += new System.EventHandler(this.interpretToolStripMenuItem_Click);
             // 
             // MainForm
             // 

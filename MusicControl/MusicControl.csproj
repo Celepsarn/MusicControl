@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +50,7 @@
     <Compile Include="Business\Interpret.cs" />
     <Compile Include="Business\FunctionController.cs" />
     <Compile Include="dto\InterpretDTO.cs" />
+    <Compile Include="Persistence\DatabaseConnection.cs" />
     <Compile Include="Persistence\InterpretDAO.cs" />
     <Compile Include="Presentation\AlbumWizzard.cs">
       <SubType>Form</SubType>
