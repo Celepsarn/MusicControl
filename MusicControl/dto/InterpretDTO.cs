@@ -9,7 +9,31 @@ namespace MusicControl.dto
 {
     class InterpretDTO
     {
-        
+        string name;
+        string foundationYear;
+        string land;
+
+        public InterpretDTO(string name, string foundationYear, string land)
+        {
+            this.name = name;
+            this.foundationYear = foundationYear;
+            this.land = land;
+        }
+
+        public string getName()
+        {
+            return name;
+        }
+
+        public string getFoundationYear()
+        {
+            return foundationYear;
+        }
+
+        public string getLand()
+        {
+            return land;
+        }
     }
 
 

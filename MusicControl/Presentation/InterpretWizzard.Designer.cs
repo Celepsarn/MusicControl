@@ -31,11 +31,11 @@
             this.lblName = new System.Windows.Forms.Label();
             this.edName = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.edFoundationYear = new System.Windows.Forms.TextBox();
             this.edLand = new System.Windows.Forms.TextBox();
             this.lblFoundationYear = new System.Windows.Forms.Label();
             this.lblLand = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.edFoundationYear = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblName
@@ -59,22 +59,13 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(125, 78);
+            this.btnSave.Location = new System.Drawing.Point(44, 78);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Speichern";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // edFoundationYear
-            // 
-            this.edFoundationYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.edFoundationYear.Location = new System.Drawing.Point(100, 28);
-            this.edFoundationYear.Name = "edFoundationYear";
-            this.edFoundationYear.Size = new System.Drawing.Size(100, 20);
-            this.edFoundationYear.TabIndex = 3;
             // 
             // edLand
             // 
@@ -106,23 +97,33 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(44, 78);
+            this.btnCancel.Location = new System.Drawing.Point(125, 78);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Abbrechen";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // edFoundationYear
+            // 
+            this.edFoundationYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.edFoundationYear.Location = new System.Drawing.Point(100, 28);
+            this.edFoundationYear.Name = "edFoundationYear";
+            this.edFoundationYear.Size = new System.Drawing.Size(100, 20);
+            this.edFoundationYear.TabIndex = 8;
             // 
             // InterpretWizzard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(204, 103);
+            this.Controls.Add(this.edFoundationYear);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblLand);
             this.Controls.Add(this.lblFoundationYear);
             this.Controls.Add(this.edLand);
-            this.Controls.Add(this.edFoundationYear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.edName);
             this.Controls.Add(this.lblName);
@@ -139,10 +140,10 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox edName;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox edFoundationYear;
         private System.Windows.Forms.TextBox edLand;
         private System.Windows.Forms.Label lblFoundationYear;
         private System.Windows.Forms.Label lblLand;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox edFoundationYear;
     }
 }

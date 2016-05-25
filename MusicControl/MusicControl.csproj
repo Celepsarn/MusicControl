@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MusicControl.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -52,12 +55,6 @@
     <Compile Include="dto\InterpretDTO.cs" />
     <Compile Include="Persistence\DatabaseConnection.cs" />
     <Compile Include="Persistence\InterpretDAO.cs" />
-    <Compile Include="Presentation\AlbumWizzard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Presentation\AlbumWizzard.Designer.cs">
-      <DependentUpon>AlbumWizzard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Presentation\InterpretWizzard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,9 +69,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Presentation\AlbumWizzard.resx">
-      <DependentUpon>AlbumWizzard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\InterpretWizzard.resx">
       <DependentUpon>InterpretWizzard.cs</DependentUpon>
     </EmbeddedResource>
