@@ -10,11 +10,13 @@ namespace MusicControl.Persistence
 {
     class InterpretDAO
     {
+        public InterpretDAO(){}
+
         public void insertInterpret(InterpretDTO obj)
         {
             MySqlConnection mysqlcon = DatabaseConnection.getInstance().getConnection();
             MySqlCommand command = mysqlcon.CreateCommand();
-            command.CommandText = "INSERT INTO tbl_interpret VALUES (" + obj.getName() + ", " + obj.getFoundationYear() + ", " + obj.getLand() + ");";
+            command.CommandText = "INSERT INTO tbl_interpret(name, foundationyear, land) VALUES ('" + obj.getName() + "', '" + obj.getFoundationYear() + "', '" + obj.getLand() + "');";
             mysqlcon.Open();
             command.ExecuteNonQuery();
             mysqlcon.Close();

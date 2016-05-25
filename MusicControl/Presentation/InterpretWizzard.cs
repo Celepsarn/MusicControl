@@ -25,14 +25,19 @@ namespace MusicControl.Presentation
             bool isNumeric = int.TryParse(edFoundationYear.Text, out n);
             if (edName.Text == "")
             {
+                edName.BackColor = ColorTranslator.FromHtml("#ff6666");
                 MessageBox.Show("Kein Name wurde angegeben.", "Eingabe nicht vollständig", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!isNumeric || edFoundationYear.Text.Length > 4)
             {
+                edName.BackColor = Color.White;
+                edFoundationYear.BackColor = ColorTranslator.FromHtml("#ff6666");
                 MessageBox.Show("Das angegebene Gründungsjahr ist nicht gültig.", "Eingabe nicht vollständig", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else
             {
                 Interpret i = new Interpret(edName.Text, edFoundationYear.Text, edLand.Text);
+                Close();
             }
         }
 

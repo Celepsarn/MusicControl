@@ -26,7 +26,7 @@ namespace MusicControl.Persistence
         }
         private void connect()
         {
-            string connectionString = "Server=localhost;Port=3306;Databse=db_musiccontrol;Uid=root;password=;";
+            string connectionString = "Server=localhost;Port=3306;Database=db_musiccontrol;Uid=root;password=;";
             this.conn = new MySqlConnection(connectionString);
         }
 

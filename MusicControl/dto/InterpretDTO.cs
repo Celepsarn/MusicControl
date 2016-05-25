@@ -18,6 +18,8 @@ namespace MusicControl.dto
             this.name = name;
             this.foundationYear = foundationYear;
             this.land = land;
+
+
         }
 
         public string getName()

@@ -17,7 +17,9 @@ namespace MusicControl.Business
             this.foundationYear = foundationYear;
             this.land = land;
 
-            InterpretDTO i = new InterpretDTO(name, foundationYear, land);
+            InterpretDTO iDTO = new InterpretDTO(name, foundationYear, land);
+            InterpretDAO iDAO = new InterpretDAO();
+            iDAO.insertInterpret(iDTO);
             
         }
 
