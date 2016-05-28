@@ -1,7 +1,5 @@
 ﻿using MusicControl.dto;
 using MusicControl.Persistence;
-using System;
-using System.Collections;
 
 namespace MusicControl.Business
 {
@@ -23,10 +21,6 @@ namespace MusicControl.Business
             
         }
 
-  //      public ArrayList<InterpretDTO> getAll()
-  //      {
-  //          ArrayList interprets = new ArrayList();
-  //          return interprets;
-  //      }
+        
     }
 }

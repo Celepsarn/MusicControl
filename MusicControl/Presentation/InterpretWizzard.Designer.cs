@@ -62,7 +62,7 @@
             this.btnSave.Location = new System.Drawing.Point(44, 78);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 2;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Speichern";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -74,7 +74,7 @@
             this.edLand.Location = new System.Drawing.Point(100, 52);
             this.edLand.Name = "edLand";
             this.edLand.Size = new System.Drawing.Size(100, 20);
-            this.edLand.TabIndex = 4;
+            this.edLand.TabIndex = 3;
             // 
             // lblFoundationYear
             // 
@@ -100,7 +100,7 @@
             this.btnCancel.Location = new System.Drawing.Point(125, 78);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Abbrechen";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -112,7 +112,7 @@
             this.edFoundationYear.Location = new System.Drawing.Point(100, 28);
             this.edFoundationYear.Name = "edFoundationYear";
             this.edFoundationYear.Size = new System.Drawing.Size(100, 20);
-            this.edFoundationYear.TabIndex = 8;
+            this.edFoundationYear.TabIndex = 2;
             // 
             // InterpretWizzard
             // 

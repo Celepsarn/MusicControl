@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("MusicControl");
             this.menTopBar = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interpretToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.albumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ansichtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,17 +84,25 @@
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.interpretToolStripMenuItem});
+            this.interpretToolStripMenuItem,
+            this.albumToolStripMenuItem});
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.neuToolStripMenuItem.Text = "Neu";
             // 
             // interpretToolStripMenuItem
             // 
             this.interpretToolStripMenuItem.Name = "interpretToolStripMenuItem";
-            this.interpretToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.interpretToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.interpretToolStripMenuItem.Text = "Interpret";
             this.interpretToolStripMenuItem.Click += new System.EventHandler(this.interpretToolStripMenuItem_Click);
+            // 
+            // albumToolStripMenuItem
+            // 
+            this.albumToolStripMenuItem.Name = "albumToolStripMenuItem";
+            this.albumToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.albumToolStripMenuItem.Text = "Album";
+            this.albumToolStripMenuItem.Click += new System.EventHandler(this.albumToolStripMenuItem_Click);
             // 
             // bearbeitenToolStripMenuItem
             // 
@@ -221,6 +231,10 @@
             this.treeMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeMain.Location = new System.Drawing.Point(0, 0);
             this.treeMain.Name = "treeMain";
+            treeNode1.Name = "ndRoot";
+            treeNode1.Text = "MusicControl";
+            this.treeMain.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1});
             this.treeMain.Size = new System.Drawing.Size(200, 431);
             this.treeMain.TabIndex = 0;
             // 
@@ -234,6 +248,7 @@
             this.MainMenuStrip = this.menTopBar;
             this.Name = "MainForm";
             this.Text = "MusicControl";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menTopBar.ResumeLayout(false);
             this.menTopBar.PerformLayout();
             this.pnTop.ResumeLayout(false);
@@ -270,6 +285,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem interpretToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem albumToolStripMenuItem;
     }
 }
 

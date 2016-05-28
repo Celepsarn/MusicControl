@@ -11,10 +11,10 @@ namespace MusicControl.Persistence
     {
         MySqlConnection conn;
         private static DatabaseConnection instance = null;
-        private DatabaseConnection()
-        {
-            
-        }
+        private DatabaseConnection(){}
+
+        //Singleton for the databaseconnection
+        //Returns the instance
         public static DatabaseConnection getInstance()
         {
             if (instance == null)
@@ -24,12 +24,16 @@ namespace MusicControl.Persistence
             }
             return instance;
         }
+
+        //Connects to the database
         private void connect()
         {
             string connectionString = "Server=localhost;Port=3306;Database=db_musiccontrol;Uid=root;password=;";
             this.conn = new MySqlConnection(connectionString);
         }
 
+        //Gets the connection. If conn isn't defined yet connect() is called
+        //Returns conn
         public MySqlConnection getConnection()
         {
             if (conn == null)
