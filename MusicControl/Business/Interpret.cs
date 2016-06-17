@@ -14,13 +14,20 @@ namespace MusicControl.Business
             this.name = name;
             this.foundationYear = foundationYear;
             this.land = land;
+        }
 
+        public void create()
+        {
             InterpretDTO iDTO = new InterpretDTO(name, foundationYear, land);
             InterpretDAO iDAO = new InterpretDAO();
             iDAO.insertInterpret(iDTO);
-            
         }
 
-        
+        public void delete()
+        {
+            InterpretDAO iDAO = new InterpretDAO();
+            iDAO.deleteInterpret(name);
+        }
+
     }
 }

@@ -50,16 +50,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Album.cs" />
+    <Compile Include="Business\Genre.cs" />
     <Compile Include="Business\Interpret.cs" />
     <Compile Include="Business\FunctionController.cs" />
+    <Compile Include="Business\Song.cs" />
+    <Compile Include="dto\AlbumDTO.cs" />
+    <Compile Include="dto\GenreDTO.cs" />
     <Compile Include="dto\InterpretDTO.cs" />
+    <Compile Include="dto\SongDTO.cs" />
+    <Compile Include="Persistence\AlbumDAO.cs" />
     <Compile Include="Persistence\DatabaseConnection.cs" />
+    <Compile Include="Persistence\GenreDAO.cs" />
     <Compile Include="Persistence\InterpretDAO.cs" />
+    <Compile Include="Persistence\SongDAO.cs" />
     <Compile Include="Presentation\AlbumWizzard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentation\AlbumWizzard.Designer.cs">
       <DependentUpon>AlbumWizzard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\GenreWizzard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\GenreWizzard.Designer.cs">
+      <DependentUpon>GenreWizzard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\SongWizzard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\SongWizzard.Designer.cs">
+      <DependentUpon>SongWizzard.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\InterpretWizzard.cs">
       <SubType>Form</SubType>
@@ -78,11 +99,17 @@
     <EmbeddedResource Include="Presentation\AlbumWizzard.resx">
       <DependentUpon>AlbumWizzard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\GenreWizzard.resx">
+      <DependentUpon>GenreWizzard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\InterpretWizzard.resx">
       <DependentUpon>InterpretWizzard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\SongWizzard.resx">
+      <DependentUpon>SongWizzard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

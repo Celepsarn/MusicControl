@@ -23,6 +23,7 @@ namespace MusicControl.Presentation
         { 
             int n;
             bool isNumeric = int.TryParse(edFoundationYear.Text, out n);
+            FunctionController fc = new FunctionController();
             if (edName.Text == "")
             {
                 edName.BackColor = ColorTranslator.FromHtml("#ff6666");
@@ -34,9 +35,16 @@ namespace MusicControl.Presentation
                 edFoundationYear.BackColor = ColorTranslator.FromHtml("#ff6666");
                 MessageBox.Show("Das angegebene Gründungsjahr ist nicht gültig.", "Eingabe nicht vollständig", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (fc.objectAlreadyExists(edName.Text, "Interpret"))
+            {
+                edFoundationYear.BackColor = Color.White;
+                edName.BackColor = ColorTranslator.FromHtml("#ff6666");
+                MessageBox.Show("Interpret existiert bereits.", "Fehlerhafte Eingabe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 Interpret i = new Interpret(edName.Text, edFoundationYear.Text, edLand.Text);
+                i.create();
                 Close();
             }
         }
