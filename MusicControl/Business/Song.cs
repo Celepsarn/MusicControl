@@ -32,5 +32,14 @@ namespace MusicControl.Business
             SongDAO sDAO = new SongDAO();
             sDAO.insertSong(sDTO);
         }
+
+        public void delete(string name)
+        {
+            FunctionController fc = new FunctionController();
+            SongDAO sDAO = new SongDAO();
+            
+            sDAO.deleteSong(name);
+
+        }
     }
 }

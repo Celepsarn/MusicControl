@@ -12,13 +12,15 @@ namespace MusicControl.dto
         string releaseYear;
         int genre;
         int interpret;
+        string coverpath;
 
-        public AlbumDTO(string name, string releaseYear, int genre, int interpret)
+        public AlbumDTO(string name, string releaseYear, int genre, int interpret, string coverpath)
         {
             this.name = name;
             this.releaseYear = releaseYear;
             this.genre = genre;
             this.interpret = interpret;
+            this.coverpath = coverpath;
         }
 
         public string getName()
@@ -39,6 +41,11 @@ namespace MusicControl.dto
         public int getInterpret()
         {
             return interpret;
+        }
+
+        public string getCoverpath()
+        {
+            return coverpath;
         }
     }
 }

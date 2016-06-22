@@ -75,5 +75,21 @@ namespace MusicControl.Persistence
             return id;
         }
 
+        public String getGenreById(int id)
+        {
+            string name = "";
+            MySqlConnection mysqlcon = DatabaseConnection.getInstance().getConnection();
+            MySqlCommand command = mysqlcon.CreateCommand();
+            command.CommandText = "SELECT name FROM tbl_genre WHERE id_genre = '" + id + "';";
+            mysqlcon.Open();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                name = reader["name"].ToString();
+            }
+            mysqlcon.Close();
+            return name;
+        }
+
     }
 }

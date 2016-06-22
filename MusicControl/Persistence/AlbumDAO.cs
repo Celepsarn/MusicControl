@@ -16,11 +16,38 @@ namespace MusicControl.Persistence
         {
             MySqlConnection mysqlcon = DatabaseConnection.getInstance().getConnection();
             MySqlCommand command = mysqlcon.CreateCommand();
-            command.CommandText = "INSERT INTO tbl_album(name, releaseyear, fk_genre, fk_interpret) VALUES ('" + obj.getName() + "', '" + obj.getReleaseYear() + "', '" + obj.getGenre() + "', '" + obj.getInterpret() + "');";
+            command.CommandText = "INSERT INTO tbl_album(name, releaseyear, fk_genre, fk_interpret, coverpath) VALUES (@colName, @colReleaseyear, @colFK_genre, @colFK_interpret, @colCoverpath);";
+            command.Parameters.AddWithValue("colName", obj.getName());
+            command.Parameters.AddWithValue("colReleaseyear", obj.getReleaseYear());
+            command.Parameters.AddWithValue("colFK_genre", obj.getGenre());
+            command.Parameters.AddWithValue("colFK_interpret", obj.getInterpret());
+            command.Parameters.AddWithValue("colCoverpath", obj.getCoverpath());
             mysqlcon.Open();
             command.ExecuteNonQuery();
             mysqlcon.Close();
         }
+
+        public AlbumDTO getAlbumByName(string name)
+        {
+            List<AlbumDTO> albums= new List<AlbumDTO>();
+            MySqlConnection mysqlcon = DatabaseConnection.getInstance().getConnection();
+            MySqlCommand command = mysqlcon.CreateCommand();
+            command.CommandText = "SELECT * FROM tbl_Album WHERE name = '" + name + "';";
+            mysqlcon.Open();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                int genre;
+                int interpret;
+                Int32.TryParse(reader["fk_genre"].ToString(), out genre);
+                Int32.TryParse(reader["fk_interpret"].ToString(), out interpret);
+                AlbumDTO aDTO = new AlbumDTO(reader["name"].ToString(), reader["releaseyear"].ToString(), genre, interpret, reader["coverpath"].ToString());
+                albums.Add(aDTO);
+            }
+            mysqlcon.Close();
+            return albums[0];
+        }
+
 
         public int getIdFromDb(string name)
         {
@@ -55,6 +82,54 @@ namespace MusicControl.Persistence
             }
             mysqlcon.Close();
             return albums;
+        }
+
+        public AlbumDTO getAlbumById(int id)
+        {
+            List<AlbumDTO> albums = new List<AlbumDTO>();
+            MySqlConnection mysqlcon = DatabaseConnection.getInstance().getConnection();
+            MySqlCommand command = mysqlcon.CreateCommand();
+            command.CommandText = "SELECT * FROM tbl_Album WHERE id_album = '" + id + "';";
+            mysqlcon.Open();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                int genre;
+                int interpret;
+                Int32.TryParse(reader["fk_genre"].ToString(), out genre);
+                Int32.TryParse(reader["fk_interpret"].ToString(), out interpret);
+                AlbumDTO aDTO = new AlbumDTO(reader["name"].ToString(), reader["releaseyear"].ToString(), genre, interpret, reader["coverpath"].ToString());
+                albums.Add(aDTO);
+            }
+            mysqlcon.Close();
+            return albums[0];
+        }
+
+        public void updateAlbum(AlbumDTO obj, int id)
+        {
+            MySqlConnection mysqlcon = DatabaseConnection.getInstance().getConnection();
+            MySqlCommand command = mysqlcon.CreateCommand();
+            command.CommandText = "UPDATE tbl_album SET name = @colName, releaseyear = @colReleaseyear, fk_genre = @colGenre, fk_interpret = @colInterpret, coverpath = @colCoverpath WHERE id_album = " + id + ";";
+            command.Parameters.AddWithValue("colName", obj.getName());
+            command.Parameters.AddWithValue("colReleaseyear", obj.getReleaseYear());
+            command.Parameters.AddWithValue("colGenre", obj.getGenre());
+            command.Parameters.AddWithValue("colInterpret", obj.getInterpret());
+            command.Parameters.AddWithValue("colCoverpath", obj.getCoverpath());
+
+            mysqlcon.Open();
+            command.ExecuteNonQuery();
+            mysqlcon.Close();
+        }
+
+        public void deleteAlbum(string name)
+        {
+            MySqlConnection mysqlcon = DatabaseConnection.getInstance().getConnection();
+            MySqlCommand command = mysqlcon.CreateCommand();
+            command.CommandText = "DELETE FROM tbl_Album WHERE name = '" + name + "';";
+            mysqlcon.Open();
+            command.ExecuteNonQuery();
+            mysqlcon.Close();
+
         }
     }
 }

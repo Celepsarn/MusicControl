@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("MusicControl");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("MusicControl");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menTopBar = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,15 +45,16 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.edSearchBar = new System.Windows.Forms.TextBox();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.spltr2 = new System.Windows.Forms.Splitter();
-            this.pnFavorites = new System.Windows.Forms.Panel();
-            this.lblFavTitle = new System.Windows.Forms.Label();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.pnTree = new System.Windows.Forms.Panel();
+            this.treeMain = new System.Windows.Forms.TreeView();
             this.pnDetailEditing = new System.Windows.Forms.Panel();
             this.pnDetailEditingAlbum = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSaveAlbum = new System.Windows.Forms.Button();
+            this.edDetailEditingAlbumGenre = new System.Windows.Forms.TextBox();
+            this.edDetailEditingAlbumYear = new System.Windows.Forms.TextBox();
+            this.edDetailEditingAlbumInterpret = new System.Windows.Forms.TextBox();
+            this.edDetailEditingAlbumName = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblDetailEditingAlbumGenre = new System.Windows.Forms.Label();
             this.lblDetailEditingAlbumReleaseYear = new System.Windows.Forms.Label();
@@ -67,19 +69,26 @@
             this.lblDetailEditingInterpretLand = new System.Windows.Forms.Label();
             this.lblDetailEditingInterpretFoundationYear = new System.Windows.Forms.Label();
             this.lblDetailEditingInterpretName = new System.Windows.Forms.Label();
-            this.spltr1 = new System.Windows.Forms.Splitter();
-            this.pnTree = new System.Windows.Forms.Panel();
-            this.treeMain = new System.Windows.Forms.TreeView();
+            this.pnFavorites = new System.Windows.Forms.Panel();
+            this.lblFavTitle = new System.Windows.Forms.Label();
+            this.btnSaveInterpret = new System.Windows.Forms.Button();
+            this.alsFavoritMarkierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.favList = new System.Windows.Forms.ListBox();
+            this.listSongs = new System.Windows.Forms.ListBox();
             this.menTopBar.SuspendLayout();
             this.pnTop.SuspendLayout();
             this.pnSearch.SuspendLayout();
             this.pnMain.SuspendLayout();
-            this.pnFavorites.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.Panel1.SuspendLayout();
+            this.splitContainer.Panel2.SuspendLayout();
+            this.splitContainer.SuspendLayout();
+            this.pnTree.SuspendLayout();
             this.pnDetailEditing.SuspendLayout();
             this.pnDetailEditingAlbum.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnDetailEditingInterpret.SuspendLayout();
-            this.pnTree.SuspendLayout();
+            this.pnFavorites.SuspendLayout();
             this.SuspendLayout();
             // 
             // menTopBar
@@ -92,7 +101,7 @@
             this.hilfeToolStripMenuItem});
             this.menTopBar.Location = new System.Drawing.Point(0, 0);
             this.menTopBar.Name = "menTopBar";
-            this.menTopBar.Size = new System.Drawing.Size(790, 21);
+            this.menTopBar.Size = new System.Drawing.Size(789, 21);
             this.menTopBar.TabIndex = 0;
             this.menTopBar.Text = "menuStrip1";
             // 
@@ -111,34 +120,35 @@
             this.albumToolStripMenuItem,
             this.genreToolStripMenuItem});
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.neuToolStripMenuItem.Text = "Neu";
             // 
             // interpretToolStripMenuItem
             // 
             this.interpretToolStripMenuItem.Name = "interpretToolStripMenuItem";
-            this.interpretToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.interpretToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.interpretToolStripMenuItem.Text = "Interpret";
             this.interpretToolStripMenuItem.Click += new System.EventHandler(this.interpretToolStripMenuItem_Click);
             // 
             // albumToolStripMenuItem
             // 
             this.albumToolStripMenuItem.Name = "albumToolStripMenuItem";
-            this.albumToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.albumToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.albumToolStripMenuItem.Text = "Album";
             this.albumToolStripMenuItem.Click += new System.EventHandler(this.albumToolStripMenuItem_Click);
             // 
             // genreToolStripMenuItem
             // 
             this.genreToolStripMenuItem.Name = "genreToolStripMenuItem";
-            this.genreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.genreToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.genreToolStripMenuItem.Text = "Genre";
             this.genreToolStripMenuItem.Click += new System.EventHandler(this.genreToolStripMenuItem_Click);
             // 
             // bearbeitenToolStripMenuItem
             // 
             this.bearbeitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.löschenToolStripMenuItem});
+            this.löschenToolStripMenuItem,
+            this.alsFavoritMarkierenToolStripMenuItem});
             this.bearbeitenToolStripMenuItem.Name = "bearbeitenToolStripMenuItem";
             this.bearbeitenToolStripMenuItem.Size = new System.Drawing.Size(75, 17);
             this.bearbeitenToolStripMenuItem.Text = "Bearbeiten";
@@ -146,7 +156,7 @@
             // löschenToolStripMenuItem
             // 
             this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
-            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.löschenToolStripMenuItem.Text = "Löschen";
             this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
             // 
@@ -170,7 +180,7 @@
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.MaximumSize = new System.Drawing.Size(0, 21);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(790, 21);
+            this.pnTop.Size = new System.Drawing.Size(789, 21);
             this.pnTop.TabIndex = 6;
             // 
             // pnSearch
@@ -178,7 +188,7 @@
             this.pnSearch.Controls.Add(this.btnSearch);
             this.pnSearch.Controls.Add(this.edSearchBar);
             this.pnSearch.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnSearch.Location = new System.Drawing.Point(648, 0);
+            this.pnSearch.Location = new System.Drawing.Point(647, 0);
             this.pnSearch.Name = "pnSearch";
             this.pnSearch.Size = new System.Drawing.Size(142, 21);
             this.pnSearch.TabIndex = 1;
@@ -203,110 +213,146 @@
             // 
             // pnMain
             // 
-            this.pnMain.Controls.Add(this.spltr2);
+            this.pnMain.Controls.Add(this.splitContainer);
             this.pnMain.Controls.Add(this.pnFavorites);
-            this.pnMain.Controls.Add(this.pnDetailEditing);
-            this.pnMain.Controls.Add(this.pnTree);
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 21);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(790, 398);
+            this.pnMain.Size = new System.Drawing.Size(789, 337);
             this.pnMain.TabIndex = 7;
             // 
-            // spltr2
+            // splitContainer
             // 
-            this.spltr2.Location = new System.Drawing.Point(642, 0);
-            this.spltr2.Name = "spltr2";
-            this.spltr2.Size = new System.Drawing.Size(5, 398);
-            this.spltr2.TabIndex = 3;
-            this.spltr2.TabStop = false;
+            this.splitContainer.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer.Name = "splitContainer";
             // 
-            // pnFavorites
+            // splitContainer.Panel1
             // 
-            this.pnFavorites.Controls.Add(this.lblFavTitle);
-            this.pnFavorites.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnFavorites.Location = new System.Drawing.Point(642, 0);
-            this.pnFavorites.MinimumSize = new System.Drawing.Size(116, 0);
-            this.pnFavorites.Name = "pnFavorites";
-            this.pnFavorites.Size = new System.Drawing.Size(148, 398);
-            this.pnFavorites.TabIndex = 4;
+            this.splitContainer.Panel1.Controls.Add(this.pnTree);
             // 
-            // lblFavTitle
+            // splitContainer.Panel2
             // 
-            this.lblFavTitle.AutoSize = true;
-            this.lblFavTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFavTitle.Location = new System.Drawing.Point(6, 3);
-            this.lblFavTitle.Name = "lblFavTitle";
-            this.lblFavTitle.Size = new System.Drawing.Size(84, 20);
-            this.lblFavTitle.TabIndex = 0;
-            this.lblFavTitle.Text = "Favoriten";
+            this.splitContainer.Panel2.Controls.Add(this.pnDetailEditing);
+            this.splitContainer.Size = new System.Drawing.Size(647, 337);
+            this.splitContainer.SplitterDistance = 137;
+            this.splitContainer.TabIndex = 5;
+            // 
+            // pnTree
+            // 
+            this.pnTree.Controls.Add(this.treeMain);
+            this.pnTree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnTree.Location = new System.Drawing.Point(0, 0);
+            this.pnTree.MinimumSize = new System.Drawing.Size(103, 0);
+            this.pnTree.Name = "pnTree";
+            this.pnTree.Size = new System.Drawing.Size(137, 337);
+            this.pnTree.TabIndex = 0;
+            // 
+            // treeMain
+            // 
+            this.treeMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeMain.Location = new System.Drawing.Point(0, 0);
+            this.treeMain.Name = "treeMain";
+            treeNode2.Name = "ndRoot";
+            treeNode2.Text = "MusicControl";
+            this.treeMain.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            this.treeMain.Size = new System.Drawing.Size(137, 337);
+            this.treeMain.TabIndex = 0;
+            this.treeMain.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeMain_NodeMouseClick);
             // 
             // pnDetailEditing
             // 
-            this.pnDetailEditing.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pnDetailEditing.BackColor = System.Drawing.SystemColors.Control;
             this.pnDetailEditing.Controls.Add(this.pnDetailEditingAlbum);
             this.pnDetailEditing.Controls.Add(this.pnDetailEditingInterpret);
-            this.pnDetailEditing.Controls.Add(this.spltr1);
-            this.pnDetailEditing.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnDetailEditing.Location = new System.Drawing.Point(172, 0);
+            this.pnDetailEditing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnDetailEditing.Location = new System.Drawing.Point(0, 0);
             this.pnDetailEditing.Name = "pnDetailEditing";
-            this.pnDetailEditing.Size = new System.Drawing.Size(470, 398);
+            this.pnDetailEditing.Size = new System.Drawing.Size(506, 337);
             this.pnDetailEditing.TabIndex = 1;
             // 
             // pnDetailEditingAlbum
             // 
             this.pnDetailEditingAlbum.BackColor = System.Drawing.SystemColors.Control;
-            this.pnDetailEditingAlbum.Controls.Add(this.textBox4);
-            this.pnDetailEditingAlbum.Controls.Add(this.textBox3);
-            this.pnDetailEditingAlbum.Controls.Add(this.textBox2);
-            this.pnDetailEditingAlbum.Controls.Add(this.textBox1);
+            this.pnDetailEditingAlbum.Controls.Add(this.listSongs);
+            this.pnDetailEditingAlbum.Controls.Add(this.btnSaveAlbum);
+            this.pnDetailEditingAlbum.Controls.Add(this.edDetailEditingAlbumGenre);
+            this.pnDetailEditingAlbum.Controls.Add(this.edDetailEditingAlbumYear);
+            this.pnDetailEditingAlbum.Controls.Add(this.edDetailEditingAlbumInterpret);
+            this.pnDetailEditingAlbum.Controls.Add(this.edDetailEditingAlbumName);
             this.pnDetailEditingAlbum.Controls.Add(this.pictureBox1);
             this.pnDetailEditingAlbum.Controls.Add(this.lblDetailEditingAlbumGenre);
             this.pnDetailEditingAlbum.Controls.Add(this.lblDetailEditingAlbumReleaseYear);
             this.pnDetailEditingAlbum.Controls.Add(this.lblDetailEditingAlbumInterpret);
             this.pnDetailEditingAlbum.Controls.Add(this.lblDetailEditingAlbumName);
             this.pnDetailEditingAlbum.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDetailEditingAlbum.Location = new System.Drawing.Point(5, 0);
+            this.pnDetailEditingAlbum.Location = new System.Drawing.Point(0, 0);
             this.pnDetailEditingAlbum.Name = "pnDetailEditingAlbum";
-            this.pnDetailEditingAlbum.Size = new System.Drawing.Size(465, 398);
+            this.pnDetailEditingAlbum.Size = new System.Drawing.Size(506, 337);
             this.pnDetailEditingAlbum.TabIndex = 2;
             // 
-            // textBox4
+            // btnSaveAlbum
             // 
-            this.textBox4.Location = new System.Drawing.Point(156, 76);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(229, 20);
-            this.textBox4.TabIndex = 8;
+            this.btnSaveAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveAlbum.Location = new System.Drawing.Point(425, 308);
+            this.btnSaveAlbum.Name = "btnSaveAlbum";
+            this.btnSaveAlbum.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveAlbum.TabIndex = 9;
+            this.btnSaveAlbum.Text = "Speichern";
+            this.btnSaveAlbum.UseVisualStyleBackColor = true;
+            this.btnSaveAlbum.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // textBox3
+            // edDetailEditingAlbumGenre
             // 
-            this.textBox3.Location = new System.Drawing.Point(156, 52);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 20);
-            this.textBox3.TabIndex = 7;
+            this.edDetailEditingAlbumGenre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.edDetailEditingAlbumGenre.Location = new System.Drawing.Point(156, 76);
+            this.edDetailEditingAlbumGenre.Name = "edDetailEditingAlbumGenre";
+            this.edDetailEditingAlbumGenre.Size = new System.Drawing.Size(344, 20);
+            this.edDetailEditingAlbumGenre.TabIndex = 8;
             // 
-            // textBox2
+            // edDetailEditingAlbumYear
             // 
-            this.textBox2.Location = new System.Drawing.Point(156, 28);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(229, 20);
-            this.textBox2.TabIndex = 6;
+            this.edDetailEditingAlbumYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.edDetailEditingAlbumYear.Location = new System.Drawing.Point(156, 52);
+            this.edDetailEditingAlbumYear.Name = "edDetailEditingAlbumYear";
+            this.edDetailEditingAlbumYear.Size = new System.Drawing.Size(344, 20);
+            this.edDetailEditingAlbumYear.TabIndex = 7;
             // 
-            // textBox1
+            // edDetailEditingAlbumInterpret
             // 
-            this.textBox1.Location = new System.Drawing.Point(156, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(303, 20);
-            this.textBox1.TabIndex = 5;
+            this.edDetailEditingAlbumInterpret.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.edDetailEditingAlbumInterpret.Location = new System.Drawing.Point(156, 28);
+            this.edDetailEditingAlbumInterpret.Name = "edDetailEditingAlbumInterpret";
+            this.edDetailEditingAlbumInterpret.ReadOnly = true;
+            this.edDetailEditingAlbumInterpret.Size = new System.Drawing.Size(344, 20);
+            this.edDetailEditingAlbumInterpret.TabIndex = 6;
+            // 
+            // edDetailEditingAlbumName
+            // 
+            this.edDetailEditingAlbumName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.edDetailEditingAlbumName.Location = new System.Drawing.Point(156, 4);
+            this.edDetailEditingAlbumName.Name = "edDetailEditingAlbumName";
+            this.edDetailEditingAlbumName.Size = new System.Drawing.Size(344, 20);
+            this.edDetailEditingAlbumName.TabIndex = 5;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(391, 28);
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(300, 102);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // lblDetailEditingAlbumGenre
             // 
@@ -347,6 +393,7 @@
             // pnDetailEditingInterpret
             // 
             this.pnDetailEditingInterpret.BackColor = System.Drawing.SystemColors.Control;
+            this.pnDetailEditingInterpret.Controls.Add(this.btnSaveInterpret);
             this.pnDetailEditingInterpret.Controls.Add(this.edDetailEditingInterpretNoOfAlbums);
             this.pnDetailEditingInterpret.Controls.Add(this.lblDetailEditingInterpretNoOfAlbums);
             this.pnDetailEditingInterpret.Controls.Add(this.edDetailEditingInterpretLand);
@@ -356,16 +403,18 @@
             this.pnDetailEditingInterpret.Controls.Add(this.lblDetailEditingInterpretFoundationYear);
             this.pnDetailEditingInterpret.Controls.Add(this.lblDetailEditingInterpretName);
             this.pnDetailEditingInterpret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDetailEditingInterpret.Location = new System.Drawing.Point(5, 0);
+            this.pnDetailEditingInterpret.Location = new System.Drawing.Point(0, 0);
             this.pnDetailEditingInterpret.Name = "pnDetailEditingInterpret";
-            this.pnDetailEditingInterpret.Size = new System.Drawing.Size(465, 398);
+            this.pnDetailEditingInterpret.Size = new System.Drawing.Size(506, 337);
             this.pnDetailEditingInterpret.TabIndex = 1;
             // 
             // edDetailEditingInterpretNoOfAlbums
             // 
+            this.edDetailEditingInterpretNoOfAlbums.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.edDetailEditingInterpretNoOfAlbums.Location = new System.Drawing.Point(156, 76);
             this.edDetailEditingInterpretNoOfAlbums.Name = "edDetailEditingInterpretNoOfAlbums";
-            this.edDetailEditingInterpretNoOfAlbums.Size = new System.Drawing.Size(303, 20);
+            this.edDetailEditingInterpretNoOfAlbums.Size = new System.Drawing.Size(344, 20);
             this.edDetailEditingInterpretNoOfAlbums.TabIndex = 7;
             // 
             // lblDetailEditingInterpretNoOfAlbums
@@ -383,7 +432,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.edDetailEditingInterpretLand.Location = new System.Drawing.Point(156, 52);
             this.edDetailEditingInterpretLand.Name = "edDetailEditingInterpretLand";
-            this.edDetailEditingInterpretLand.Size = new System.Drawing.Size(303, 20);
+            this.edDetailEditingInterpretLand.Size = new System.Drawing.Size(344, 20);
             this.edDetailEditingInterpretLand.TabIndex = 5;
             // 
             // edDetailEditingInterpretFoundationYear
@@ -392,7 +441,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.edDetailEditingInterpretFoundationYear.Location = new System.Drawing.Point(156, 28);
             this.edDetailEditingInterpretFoundationYear.Name = "edDetailEditingInterpretFoundationYear";
-            this.edDetailEditingInterpretFoundationYear.Size = new System.Drawing.Size(303, 20);
+            this.edDetailEditingInterpretFoundationYear.Size = new System.Drawing.Size(344, 20);
             this.edDetailEditingInterpretFoundationYear.TabIndex = 4;
             // 
             // edDetailEditingInterpretName
@@ -401,7 +450,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.edDetailEditingInterpretName.Location = new System.Drawing.Point(156, 4);
             this.edDetailEditingInterpretName.Name = "edDetailEditingInterpretName";
-            this.edDetailEditingInterpretName.Size = new System.Drawing.Size(303, 20);
+            this.edDetailEditingInterpretName.Size = new System.Drawing.Size(344, 20);
             this.edDetailEditingInterpretName.TabIndex = 3;
             // 
             // lblDetailEditingInterpretLand
@@ -431,45 +480,77 @@
             this.lblDetailEditingInterpretName.TabIndex = 0;
             this.lblDetailEditingInterpretName.Text = "Name:";
             // 
-            // spltr1
+            // pnFavorites
             // 
-            this.spltr1.Location = new System.Drawing.Point(0, 0);
-            this.spltr1.Name = "spltr1";
-            this.spltr1.Size = new System.Drawing.Size(5, 398);
-            this.spltr1.TabIndex = 0;
-            this.spltr1.TabStop = false;
+            this.pnFavorites.BackColor = System.Drawing.SystemColors.Window;
+            this.pnFavorites.Controls.Add(this.favList);
+            this.pnFavorites.Controls.Add(this.lblFavTitle);
+            this.pnFavorites.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnFavorites.Location = new System.Drawing.Point(647, 0);
+            this.pnFavorites.MinimumSize = new System.Drawing.Size(116, 0);
+            this.pnFavorites.Name = "pnFavorites";
+            this.pnFavorites.Size = new System.Drawing.Size(142, 337);
+            this.pnFavorites.TabIndex = 4;
             // 
-            // pnTree
+            // lblFavTitle
             // 
-            this.pnTree.Controls.Add(this.treeMain);
-            this.pnTree.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnTree.Location = new System.Drawing.Point(0, 0);
-            this.pnTree.MinimumSize = new System.Drawing.Size(103, 0);
-            this.pnTree.Name = "pnTree";
-            this.pnTree.Size = new System.Drawing.Size(172, 398);
-            this.pnTree.TabIndex = 0;
+            this.lblFavTitle.AutoSize = true;
+            this.lblFavTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFavTitle.Location = new System.Drawing.Point(6, 3);
+            this.lblFavTitle.Name = "lblFavTitle";
+            this.lblFavTitle.Size = new System.Drawing.Size(84, 20);
+            this.lblFavTitle.TabIndex = 0;
+            this.lblFavTitle.Text = "Favoriten";
             // 
-            // treeMain
+            // btnSaveInterpret
             // 
-            this.treeMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeMain.Location = new System.Drawing.Point(0, 0);
-            this.treeMain.Name = "treeMain";
-            treeNode1.Name = "ndRoot";
-            treeNode1.Text = "MusicControl";
-            this.treeMain.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.treeMain.Size = new System.Drawing.Size(172, 398);
-            this.treeMain.TabIndex = 0;
-            this.treeMain.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeMain_NodeMouseClick);
+            this.btnSaveInterpret.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveInterpret.Location = new System.Drawing.Point(425, 308);
+            this.btnSaveInterpret.Name = "btnSaveInterpret";
+            this.btnSaveInterpret.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveInterpret.TabIndex = 9;
+            this.btnSaveInterpret.Text = "Speichern";
+            this.btnSaveInterpret.UseVisualStyleBackColor = true;
+            this.btnSaveInterpret.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // alsFavoritMarkierenToolStripMenuItem
+            // 
+            this.alsFavoritMarkierenToolStripMenuItem.Name = "alsFavoritMarkierenToolStripMenuItem";
+            this.alsFavoritMarkierenToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.alsFavoritMarkierenToolStripMenuItem.Text = "Als Favorit markieren";
+            this.alsFavoritMarkierenToolStripMenuItem.Click += new System.EventHandler(this.alsFavoritMarkierenToolStripMenuItem_Click);
+            // 
+            // favList
+            // 
+            this.favList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.favList.FormattingEnabled = true;
+            this.favList.Location = new System.Drawing.Point(6, 28);
+            this.favList.Name = "favList";
+            this.favList.Size = new System.Drawing.Size(133, 303);
+            this.favList.TabIndex = 1;
+            // 
+            // listSongs
+            // 
+            this.listSongs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listSongs.FormattingEnabled = true;
+            this.listSongs.Location = new System.Drawing.Point(7, 102);
+            this.listSongs.Name = "listSongs";
+            this.listSongs.Size = new System.Drawing.Size(287, 199);
+            this.listSongs.TabIndex = 10;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 419);
+            this.ClientSize = new System.Drawing.Size(789, 358);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.pnTop);
             this.MainMenuStrip = this.menTopBar;
+            this.MinimumSize = new System.Drawing.Size(805, 397);
             this.Name = "MainForm";
             this.Text = "MusicControl";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -480,15 +561,19 @@
             this.pnSearch.ResumeLayout(false);
             this.pnSearch.PerformLayout();
             this.pnMain.ResumeLayout(false);
-            this.pnFavorites.ResumeLayout(false);
-            this.pnFavorites.PerformLayout();
+            this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
+            this.pnTree.ResumeLayout(false);
             this.pnDetailEditing.ResumeLayout(false);
             this.pnDetailEditingAlbum.ResumeLayout(false);
             this.pnDetailEditingAlbum.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnDetailEditingInterpret.ResumeLayout(false);
             this.pnDetailEditingInterpret.PerformLayout();
-            this.pnTree.ResumeLayout(false);
+            this.pnFavorites.ResumeLayout(false);
+            this.pnFavorites.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -505,9 +590,7 @@
         private System.Windows.Forms.TextBox edSearchBar;
         private System.Windows.Forms.Panel pnMain;
         private System.Windows.Forms.Panel pnFavorites;
-        private System.Windows.Forms.Splitter spltr2;
         private System.Windows.Forms.Panel pnDetailEditing;
-        private System.Windows.Forms.Splitter spltr1;
         private System.Windows.Forms.Panel pnTree;
         private System.Windows.Forms.Label lblFavTitle;
         private System.Windows.Forms.TreeView treeMain;
@@ -525,10 +608,10 @@
         private System.Windows.Forms.TextBox edDetailEditingInterpretNoOfAlbums;
         private System.Windows.Forms.Label lblDetailEditingInterpretNoOfAlbums;
         private System.Windows.Forms.Panel pnDetailEditingAlbum;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox edDetailEditingAlbumGenre;
+        private System.Windows.Forms.TextBox edDetailEditingAlbumYear;
+        private System.Windows.Forms.TextBox edDetailEditingAlbumInterpret;
+        private System.Windows.Forms.TextBox edDetailEditingAlbumName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblDetailEditingAlbumGenre;
         private System.Windows.Forms.Label lblDetailEditingAlbumReleaseYear;
@@ -536,6 +619,12 @@
         private System.Windows.Forms.Label lblDetailEditingAlbumName;
         private System.Windows.Forms.ToolStripMenuItem genreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer;
+        private System.Windows.Forms.Button btnSaveAlbum;
+        private System.Windows.Forms.Button btnSaveInterpret;
+        private System.Windows.Forms.ToolStripMenuItem alsFavoritMarkierenToolStripMenuItem;
+        private System.Windows.Forms.ListBox favList;
+        private System.Windows.Forms.ListBox listSongs;
     }
 }
 

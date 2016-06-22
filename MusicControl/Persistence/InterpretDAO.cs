@@ -54,7 +54,14 @@ namespace MusicControl.Persistence
                 interprets.Add(i);
             }
             mysqlcon.Close();
-            return interprets[0];
+            if (interprets.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return interprets[0];
+            }
         }
 
         public void deleteInterpret(string name)
@@ -83,6 +90,36 @@ namespace MusicControl.Persistence
             }
             mysqlcon.Close();
             return id;
+        }
+
+        public String getInterpretNameById(int id)
+        {
+            string name = "";
+            MySqlConnection mysqlcon = DatabaseConnection.getInstance().getConnection();
+            MySqlCommand command = mysqlcon.CreateCommand();
+            command.CommandText = "SELECT name FROM tbl_Interpret WHERE id_interpret = '" + id + "';";
+            mysqlcon.Open();
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                name = reader["name"].ToString();
+            }
+            mysqlcon.Close();
+            return name;
+        }
+
+        public void updateInterpret(InterpretDTO obj, int id)
+        {
+            MySqlConnection mysqlcon = DatabaseConnection.getInstance().getConnection();
+            MySqlCommand command = mysqlcon.CreateCommand();
+            command.CommandText = "UPDATE tbl_interpret SET name = @colName, foundationyear = @colFoundationyear, land = @colLand WHERE id_interpret = " + id + ";";
+            command.Parameters.AddWithValue("colName", obj.getName());
+            command.Parameters.AddWithValue("colFoundationyear", obj.getFoundationYear());
+            command.Parameters.AddWithValue("colLand", obj.getLand());
+          
+            mysqlcon.Open();
+            command.ExecuteNonQuery();
+            mysqlcon.Close();
         }
     }
 }

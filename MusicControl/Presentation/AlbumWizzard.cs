@@ -14,13 +14,14 @@ namespace MusicControl.Presentation
 {
     public partial class AlbumWizzard : Form
     {
-        private List<SongDTO> songs = new List<SongDTO>(); 
+        private List<SongDTO> songs = new List<SongDTO>();
+        private string coverpath;
         public AlbumWizzard()
         {
             InitializeComponent();
         }
 
-        //Loads interpreters and genres into their comboboxes
+        //Loads interpreters and genres into their comboboxes. Also prepares some form components.
         private void AlbumWizzard_Load(object sender, EventArgs e)
         {
             FunctionController fc = new FunctionController();
@@ -35,6 +36,8 @@ namespace MusicControl.Presentation
             {
                 cbGenres.Items.Add(g.getName());
             }
+
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -56,7 +59,7 @@ namespace MusicControl.Presentation
             }
             else
             {
-                Album a = new Album(edName.Text, edReleaseYear.Text, cbGenres.Text, cbInterprets.Text);
+                Album a = new Album(edName.Text, edReleaseYear.Text, cbGenres.Text, cbInterprets.Text, coverpath);
                 a.create();
                 foreach (SongDTO songObj in songs)
                 {
@@ -78,6 +81,17 @@ namespace MusicControl.Presentation
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            FunctionController fc = new FunctionController();
+            coverpath = fc.addCover();
+            if (coverpath != null)
+            {
+                pictureBox1.Image = Image.FromFile(coverpath);
+                pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlbumWizzard));
             this.cbInterprets = new System.Windows.Forms.ComboBox();
             this.lblInterpret = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@
             this.edReleaseYear = new System.Windows.Forms.TextBox();
             this.listSongs = new System.Windows.Forms.ListView();
             this.colSongs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbInterprets
@@ -51,7 +54,7 @@
             this.cbInterprets.FormattingEnabled = true;
             this.cbInterprets.Location = new System.Drawing.Point(100, 4);
             this.cbInterprets.Name = "cbInterprets";
-            this.cbInterprets.Size = new System.Drawing.Size(179, 21);
+            this.cbInterprets.Size = new System.Drawing.Size(196, 21);
             this.cbInterprets.TabIndex = 0;
             // 
             // lblInterpret
@@ -78,7 +81,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.edName.Location = new System.Drawing.Point(100, 28);
             this.edName.Name = "edName";
-            this.edName.Size = new System.Drawing.Size(179, 20);
+            this.edName.Size = new System.Drawing.Size(122, 20);
             this.edName.TabIndex = 1;
             // 
             // lblSongs
@@ -106,7 +109,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(204, 235);
+            this.btnCancel.Location = new System.Drawing.Point(221, 237);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 9;
@@ -117,7 +120,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(123, 235);
+            this.btnSave.Location = new System.Drawing.Point(140, 237);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
@@ -136,10 +139,12 @@
             // 
             // cbGenres
             // 
+            this.cbGenres.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbGenres.FormattingEnabled = true;
             this.cbGenres.Location = new System.Drawing.Point(100, 76);
             this.cbGenres.Name = "cbGenres";
-            this.cbGenres.Size = new System.Drawing.Size(179, 21);
+            this.cbGenres.Size = new System.Drawing.Size(122, 21);
             this.cbGenres.TabIndex = 3;
             // 
             // lblReleaseYear
@@ -157,16 +162,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.edReleaseYear.Location = new System.Drawing.Point(100, 52);
             this.edReleaseYear.Name = "edReleaseYear";
-            this.edReleaseYear.Size = new System.Drawing.Size(179, 20);
+            this.edReleaseYear.Size = new System.Drawing.Size(122, 20);
             this.edReleaseYear.TabIndex = 2;
             // 
             // listSongs
             // 
+            this.listSongs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listSongs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colSongs});
             this.listSongs.Location = new System.Drawing.Point(7, 132);
             this.listSongs.Name = "listSongs";
-            this.listSongs.Size = new System.Drawing.Size(272, 97);
+            this.listSongs.Size = new System.Drawing.Size(289, 99);
             this.listSongs.TabIndex = 13;
             this.listSongs.UseCompatibleStateImageBehavior = false;
             this.listSongs.View = System.Windows.Forms.View.Details;
@@ -174,13 +182,28 @@
             // colSongs
             // 
             this.colSongs.Text = "Songs";
-            this.colSongs.Width = 267;
+            this.colSongs.Width = 300;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(228, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 68);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // AlbumWizzard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(301, 263);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.listSongs);
             this.Controls.Add(this.edReleaseYear);
             this.Controls.Add(this.lblReleaseYear);
@@ -197,6 +220,7 @@
             this.Name = "AlbumWizzard";
             this.Text = "Neues Album erstellen";
             this.Load += new System.EventHandler(this.AlbumWizzard_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,5 +242,6 @@
         private System.Windows.Forms.TextBox edReleaseYear;
         private System.Windows.Forms.ListView listSongs;
         private System.Windows.Forms.ColumnHeader colSongs;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
